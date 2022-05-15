@@ -9,24 +9,24 @@
     <title>Doccure</title>
 
     <!-- Favicons -->
-    <link type="image/x-icon" href="assets/img/favicon.png" rel="icon">
+    <link type="image/x-icon" href="/assets/img/favicon.png" rel="icon">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/plugins/fontawesome/css/all.min.css">
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
                 			<script src="assets/js/html5shiv.min.js"></script>
                 			<script src="assets/js/respond.min.js"></script>
                 		<![endif]-->
-    <link rel="stylesheet" href="assets/css/list-items.css">
+    <link rel="stylesheet" href="/assets/css/list-items.css">
     <style>
 
     </style>
@@ -47,14 +47,14 @@
                             <span></span>
                         </span>
                     </a>
-                    <a href="index-2.html" class="navbar-brand logo">
-                        <img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+                    <a href="/" class="navbar-brand logo">
+                        <img src="/assets/img/logo.png" class="img-fluid" alt="Logo">
                     </a>
                 </div>
                 <div class="main-menu-wrapper">
                     <div class="menu-header">
-                        <a href="index-2.html" class="menu-logo">
-                            <img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+                        <a href="/" class="menu-logo">
+                            <img src="/assets/img/logo.png" class="img-fluid" alt="Logo">
                         </a>
                         <a id="menu_close" class="menu-close" href="javascript:void(0);">
                             <i class="fas fa-times"></i>
@@ -65,53 +65,8 @@
                             <a href="index-2.html">Home</a>
                         </li>
 
-                        <li class="has-submenu">
-                            <a href="#">Pages
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="voice-call.html">Voice Call</a>
-                                </li>
-                                <li>
-                                    <a href="video-call.html">Video Call</a>
-                                </li>
-                                <li>
-                                    <a href="search.html">Search Doctors</a>
-                                </li>
-                                <li>
-                                    <a href="calendar.html">Calendar</a>
-                                </li>
-                                <li>
-                                    <a href="components.html">Components</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="invoices.html">Invoices</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="invoices.html">Invoices</a>
-                                        </li>
-                                        <li>
-                                            <a href="invoice-view.html">Invoice View</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="blank-page.html">Starter Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forgot-password.html">Forgot Password</a>
-                                </li>
-                            </ul>
-                        </li>
                         <li>
-                            <a href="admin/index.html" target="_blank">Admin</a>
+                            <a href="{{route('food.index')}}">Admin</a>
                         </li>
                         <li class="login-link">
                             <a href="login.html">Login / Signup</a>
@@ -154,7 +109,7 @@
                             <!-- Footer Widget -->
                             <div class="footer-widget footer-about">
                                 <div class="footer-logo">
-                                    <img src="assets/img/footer-logo.png" alt="logo">
+                                    <img src="/assets/img/footer-logo.png" alt="logo">
                                 </div>
                                 <div class="footer-about-content">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -287,17 +242,17 @@
     <!-- /Main Wrapper -->
 
     <!-- jQuery -->
-    <script src="assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
 
     <!-- Bootstrap Core JS -->
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
 
     <!-- Slick JS -->
-    <script src="assets/js/slick.js"></script>
+    <script src="/assets/js/slick.js"></script>
 
     <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
 
 </body>
 

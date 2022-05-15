@@ -15,7 +15,7 @@ class FoodController extends Controller
      */
     public function index()
     {
-        //
+        return view('food.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('food.create');
     }
 
     /**
@@ -36,7 +36,19 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $food = new Food;
+        $food->name = $request->input('name');
+
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extenstion;
+            $file->move('uploads/foods/', $filename);
+            $food->image = $filename;
+        }
+
+        $food->save();
+        return redirect()->back()->with('message', 'food Image Upload Successfully');
     }
 
     /**

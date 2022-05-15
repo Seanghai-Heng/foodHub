@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/admin/foods', function () {
-    return view('foods.index');
-});
+Route::resource('admin/food', FoodController::class);
+Route::resource('admin/food-type', TypeController::class);
