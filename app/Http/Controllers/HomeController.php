@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Food;
 use Illuminate\Http\Request;
 
-class FoodController extends Controller
+class HomeController extends Controller
 {
 
     /**
@@ -15,5 +15,8 @@ class FoodController extends Controller
      */
     public function index()
     {
+        $foods = Food::join('types', 'foods.typeId', '=', 'types.id')
+            ->get(['foods.*', 'types.name as type_name']);
+        return view('index', compact('foods'));
     }
 }

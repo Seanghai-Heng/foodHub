@@ -50,7 +50,7 @@
                 <td>{{$food->id}}</td>
                 <td>{{$food->name}}</td>
                 <td>{{$food->type_name}}</td>
-                <td>{{$food->food_image}}</td>
+                <td>$ {{$food->price}}</td>
                 <td><img width="100px" height="100px" src="{{url('/uploads/foods')}}/{{$food->food_image}}" alt="{{$food->name}}"></td>
                 <td>
                     <form action="" method="Post">
