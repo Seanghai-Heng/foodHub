@@ -53,8 +53,8 @@
                 <td>$ {{$food->price}}</td>
                 <td><img width="100px" height="100px" src="{{url('/uploads/foods')}}/{{$food->food_image}}" alt="{{$food->name}}"></td>
                 <td>
-                    <form action="" method="Post">
-                        <a class="btn btn-primary" href="">Edit</a>
+                    <form action="{{ route('foods.destroy',$food->id) }}" method="Post">
+                        <a class="btn btn-primary" href="{{ route('foods.edit',$food->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

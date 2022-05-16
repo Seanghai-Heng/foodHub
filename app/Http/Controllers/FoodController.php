@@ -16,7 +16,7 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::join('types', 'foods.typeId', '=', 'types.id')
+        $foods = Food::join('types', 'foods.typeId', '=', 'types.id')->orderBy('foods.id')
             ->get(['foods.*', 'types.name as type_name']);
         // return $foods;
         return view('foods.index', compact('foods'));
@@ -75,9 +75,13 @@ class FoodController extends Controller
      * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function edit(Food $food)
+    public function edit($id)
     {
-        //
+        $types = Type::all();
+        $food = Food::where('foods.id', $id)->join('types', 'foods.typeId', '=', 'types.id')
+            ->first(['foods.*', 'types.name as type_name']);
+        // return $food;
+        return view('foods.edit', compact('food', 'types'));
     }
 
     /**
@@ -87,9 +91,27 @@ class FoodController extends Controller
      * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Food $food)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'type' => 'required',
+            'price' => 'required',
+        ]);
+        $food = Food::findOrFail($id);
+        $food->name = $request->name;
+        $food->typeId = $request->type;
+        $food->price = $request->price;
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extenstion;
+            $file->move('uploads/foods/', $filename);
+            $food->food_image = $filename;
+        }
+        $food->save();
+        return redirect()->route('foods.index')
+            ->with('success', 'Food Has Been updated successfully');
     }
 
     /**
@@ -98,8 +120,10 @@ class FoodController extends Controller
      * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Food $food)
+    public function destroy($id)
     {
-        //
+        $food = Food::findOrFail($id);
+        $food->delete();
+        return redirect()->route('foods.index')->with('success', 'Food Data is successfully deleted');
     }
 }

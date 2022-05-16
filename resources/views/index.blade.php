@@ -2,6 +2,12 @@
 
 @section('content')
 
+<style>
+    .pagination {
+        justify-content: center
+    }
+
+</style>
 
 <!-- Home Banner -->
 <section class="section section-search">
@@ -49,8 +55,10 @@
             <div class="d-flex align-content-center justify-content-center"> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> </div>
             <div class="price">$ {{$food->price}}</div>
         </div>
-
         @endforeach
+    </div>
+    <div class="text-center">
+        {!! $foods->links() !!}
     </div>
 </div>
 

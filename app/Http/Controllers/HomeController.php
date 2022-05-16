@@ -15,8 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $foods = Food::join('types', 'foods.typeId', '=', 'types.id')
-            ->get(['foods.*', 'types.name as type_name']);
+        $foods = Food::paginate(8);
         return view('index', compact('foods'));
     }
 }
