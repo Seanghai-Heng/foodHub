@@ -36,9 +36,9 @@
                 <th>Type</th>
                 <th width="280px">Action</th>
             </tr>
-            @foreach($foodTypes as $foodType)
+            @foreach($foodTypes as $key => $foodType)
             <tr>
-                <td>{{ $foodType->id }}</td>
+                <td>{{ $key+1 }}</td>
                 <td>{{ $foodType->name}}</td>
                 <td>
                     <form action="{{ route('food-types.destroy',$foodType->id) }}" method="Post">

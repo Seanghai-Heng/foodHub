@@ -45,9 +45,9 @@
                 <th>Food Image</th>
                 <th width="280px">Action</th>
             </tr>
-            @foreach($foods as $food)
+            @foreach($foods as $key => $food)
             <tr style="text-align:center">
-                <td>{{$food->id}}</td>
+                <td>{{$key+1}}</td>
                 <td>{{$food->name}}</td>
                 <td>{{$food->type_name}}</td>
                 <td>$ {{$food->price}}</td>

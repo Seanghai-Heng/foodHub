@@ -55,7 +55,7 @@ class FoodController extends Controller
         }
         $food->save();
         return redirect()->route('foods.index')
-            ->with('success', 'Food Image has been uploaded successfully.');
+            ->with('success', 'Food data has been uploaded successfully.');
     }
 
     /**

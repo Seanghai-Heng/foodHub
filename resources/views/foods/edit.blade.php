@@ -30,7 +30,7 @@
                     <strong><label for="type">Food Type</label></strong>
                     <select id="type" name="type" class="form-control">
                         @foreach($types as $type)
-                        <option value="{{$type->id}}">{{$type->name}}</option>
+                        <option value="{{$type->id}}" {{ $food->typeId == $type->id ? 'selected' : ''  }}>{{$type->name}}</option>
                         @endforeach
                     </select>
                 </div>
