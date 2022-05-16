@@ -11,17 +11,17 @@
         <div class="pt-4">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">Food</a>
+                    <a href="{{route('foods.index')}}" class="nav-link ">Food</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('food-type.index')}}" class="nav-link">Food Type</a>
+                    <a href="#" class="nav-link active">Food Type</a>
                 </li>
             </ul>
         </div>
         <div class="row">
             <div class="col-lg-12 margin-tb mt-3">
                 <div class="mb-2">
-                    <a class="btn btn-success" href="{{route('food.create')}}"> Create food</a>
+                    <a class="btn btn-success" href="{{route('food-types.create')}}"> Create Food Type</a>
                 </div>
             </div>
         </div>
@@ -33,27 +33,25 @@
         <table class="table table-bordered">
             <tr>
                 <th>S.No</th>
-                <th>food Name</th>
-                <th>food Email</th>
-                <th>food Address</th>
+                <th>Type</th>
                 <th width="280px">Action</th>
             </tr>
-
+            @foreach($foodTypes as $foodType)
             <tr>
-                <td>1</td>
-                <td>name</td>
-                <td>email</td>
-                <td>food</td>
+                <td>{{ $foodType->id }}</td>
+                <td>{{ $foodType->name}}</td>
                 <td>
-                    <form action="" method="Post">
-                        <a class="btn btn-primary" href="">Edit</a>
+                    <form action="{{ route('food-types.destroy',$foodType->id) }}" method="Post">
+                        <a class="btn btn-primary" href="{{ route('food-types.edit',$foodType->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>
+            @endforeach
         </table>
+        {!! $foodTypes->links() !!}
     </div>
 
     @endsection

@@ -19,7 +19,6 @@ class CreateFoodsTable extends Migration
             $table->string('name');
             $table->string('food_image');
             $table->double('price');
-            $table->integer('numberSold');
             $table->timestamps();
         });
     }

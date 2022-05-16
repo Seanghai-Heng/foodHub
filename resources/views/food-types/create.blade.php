@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ route('food-type.store') }}" method="POST">
+                    <form action="{{ route('food-types.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="">Food Type Name</label>

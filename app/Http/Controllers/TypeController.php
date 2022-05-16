@@ -15,7 +15,7 @@ class TypeController extends Controller
     public function index()
     {
         $foodTypes = Type::orderBy('id')->paginate(5);
-        return view('food-type.index', compact('foodTypes'));
+        return view('food-types.index', compact('foodTypes'));
     }
 
     /**
@@ -25,7 +25,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        return view('food-type.create');
+        return view('food-types.create');
     }
 
     /**
@@ -42,7 +42,7 @@ class TypeController extends Controller
         $type = new Type;
         $type->name = $request->name;
         $type->save();
-        return redirect()->route('food-type.index')
+        return redirect()->route('food-types.index')
             ->with('success', 'Food Type has been created successfully.');
     }
 
@@ -66,7 +66,7 @@ class TypeController extends Controller
     public function edit($id)
     {
         $type = Type::findOrFail($id);
-        return view('food-type.edit', compact('type'));
+        return view('food-types.edit', compact('type'));
     }
 
     /**
@@ -84,7 +84,7 @@ class TypeController extends Controller
         $type = Type::findOrFail($id);
         $type->name = $request->name;
         $type->save();
-        return redirect()->route('food-type.index')
+        return redirect()->route('food-types.index')
             ->with('success', 'Food Type Has Been updated successfully');
     }
 
@@ -98,6 +98,6 @@ class TypeController extends Controller
     {
         $type = Type::findOrFail($id);
         $type->delete();
-        return redirect()->route('food-type.index')->with('success', 'Food Type Data is successfully deleted');
+        return redirect()->route('food-types.index')->with('success', 'Food Type Data is successfully deleted');
     }
 }

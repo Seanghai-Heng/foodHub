@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
@@ -15,7 +16,10 @@ class FoodController extends Controller
      */
     public function index()
     {
-        return view('food.index');
+        $foods = Food::join('types', 'foods.typeId', '=', 'types.id')
+            ->get(['foods.*', 'types.name as type_name']);
+        // return $foods;
+        return view('foods.index', compact('foods'));
     }
 
     /**
@@ -25,7 +29,8 @@ class FoodController extends Controller
      */
     public function create()
     {
-        return view('food.create');
+        $types = Type::all();
+        return view('foods.create', compact('types'));
     }
 
     /**
@@ -37,18 +42,20 @@ class FoodController extends Controller
     public function store(Request $request)
     {
         $food = new Food;
-        $food->name = $request->input('name');
+        $food->typeId = $request->type;
+        $food->name = $request->name;
+        $food->price = $request->price;
 
         if ($request->hasfile('image')) {
             $file = $request->file('image');
             $extenstion = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extenstion;
             $file->move('uploads/foods/', $filename);
-            $food->image = $filename;
+            $food->food_image = $filename;
         }
-
         $food->save();
-        return redirect()->back()->with('message', 'food Image Upload Successfully');
+        return redirect()->route('foods.index')
+            ->with('success', 'Food Image has been uploaded successfully.');
     }
 
     /**

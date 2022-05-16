@@ -5,7 +5,7 @@
 <div class="container mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb d-flex">
-            <a class="btn btn-primary" href="{{ route('food-type.index') }}" enctype="multipart/form-data"> Back</a>
+            <a class="btn btn-primary" href="{{ route('food-types.index') }}" enctype="multipart/form-data"> Back</a>
             <h2 style="text-align:center; width:inherit">Edit Food Type</h2>
         </div>
     </div>
@@ -14,7 +14,7 @@
         {{ session('status') }}
     </div>
     @endif
-    <form action="{{ route('food-type.update', $type->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('food-types.update', $type->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row mt-3">

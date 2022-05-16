@@ -19,5 +19,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('admin/food', FoodController::class);
-Route::resource('admin/food-type', TypeController::class);
+Route::resource('admin/foods', FoodController::class);
+Route::resource('admin/food-types', TypeController::class);

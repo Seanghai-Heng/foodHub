@@ -66,7 +66,7 @@
                         </li>
 
                         <li>
-                            <a href="{{route('food.index')}}">Admin</a>
+                            <a href="{{route('foods.index')}}">Admin</a>
                         </li>
                         <li class="login-link">
                             <a href="login.html">Login / Signup</a>
