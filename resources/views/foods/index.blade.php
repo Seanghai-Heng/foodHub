@@ -36,9 +36,9 @@
         <table class="table table-bordered">
             <tr style="text-align:center">
                 <th>Food.No</th>
-                <th>Food Name</th>
-                <th>Food Type</th>
-                <th>Food Price</th>
+                <th>@sortablelink('name')</th>
+                <th>@sortablelink('typeId')</th>
+                <th>@sortablelink('price')</th>
                 <th>Food Image</th>
                 <th width="280px">Action</th>
             </tr>
@@ -61,7 +61,8 @@
             @endforeach
         </table>
         <div class="text-center p-3">
-            {!! $foods->links() !!}
+            {{-- {!! $foods->links() !!} --}}
+            {!! $foods->appends(\Request::except('page'))->render() !!}
         </div>
     </div>
 
