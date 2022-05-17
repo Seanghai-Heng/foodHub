@@ -35,7 +35,7 @@
         @endif
         <table class="table table-bordered">
             <tr style="text-align:center">
-                <th>Food ID</th>
+                <th>Food.No</th>
                 <th>Food Name</th>
                 <th>Food Type</th>
                 <th>Food Price</th>
@@ -44,7 +44,7 @@
             </tr>
             @foreach($foods as $key => $food)
             <tr style="text-align:center">
-                <td>{{$food->id}}</td>
+                <td>{{$key + $foods->firstItem()}}</td>
                 <td>{{$food->name}}</td>
                 <td>{{$food->type_name}}</td>
                 <td>$ {{$food->price}}</td>

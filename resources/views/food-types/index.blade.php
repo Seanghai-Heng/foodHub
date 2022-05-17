@@ -32,13 +32,13 @@
         @endif
         <table class="table table-bordered">
             <tr>
-                <th>S.No</th>
+                <th>Type.No</th>
                 <th>Type</th>
                 <th width="280px">Action</th>
             </tr>
             @foreach($foodTypes as $key => $foodType)
             <tr>
-                <td>{{ $key+1 }}</td>
+                <td>{{ $key + $foodTypes->firstItem() }}</td>
                 <td>{{ $foodType->name}}</td>
                 <td>
                     <form action="{{ route('food-types.destroy',$foodType->id) }}" method="Post">
