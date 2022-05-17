@@ -17,7 +17,7 @@ class FoodController extends Controller
     public function index()
     {
         $foods = Food::join('types', 'foods.typeId', '=', 'types.id')->orderBy('foods.id')
-            ->get(['foods.*', 'types.name as type_name']);
+            ->paginate(10, ['foods.*', 'types.name as type_name']);
         // return $foods;
         return view('foods.index', compact('foods'));
     }

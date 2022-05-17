@@ -57,7 +57,7 @@
         </div>
         @endforeach
     </div>
-    <div class="text-center">
+    <div class="text-center p-3">
         {!! $foods->links() !!}
     </div>
 </div>

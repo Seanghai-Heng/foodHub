@@ -3,11 +3,8 @@
 @section('content')
 
 <style>
-    .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
+    .pagination {
+        justify-content: center
     }
 
 </style>
@@ -38,7 +35,7 @@
         @endif
         <table class="table table-bordered">
             <tr style="text-align:center">
-                <th>S.No</th>
+                <th>Food ID</th>
                 <th>Food Name</th>
                 <th>Food Type</th>
                 <th>Food Price</th>
@@ -47,7 +44,7 @@
             </tr>
             @foreach($foods as $key => $food)
             <tr style="text-align:center">
-                <td>{{$key+1}}</td>
+                <td>{{$food->id}}</td>
                 <td>{{$food->name}}</td>
                 <td>{{$food->type_name}}</td>
                 <td>$ {{$food->price}}</td>
@@ -63,6 +60,9 @@
             </tr>
             @endforeach
         </table>
+        <div class="text-center p-3">
+            {!! $foods->links() !!}
+        </div>
     </div>
 
     @endsection
